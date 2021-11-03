@@ -1,0 +1,15 @@
+.nav:visited {
+  color: gray;
+}
+.nav {
+  width: 100%;
+  height: 70px;
+  color: darkslategray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+li {
+ display: inline-block;
+ padding-left: 20px;
+}
