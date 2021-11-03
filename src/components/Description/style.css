@@ -2,6 +2,17 @@
     width: 60rem;
     height: 30rem;
     border: 5px solid black;
-   
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.avatar {
+    font-size: 3rem;
+}
+
+.bttn {
+    width: 5rem;
 }
