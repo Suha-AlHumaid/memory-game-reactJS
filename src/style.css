@@ -3,3 +3,7 @@
     margin: 0;
     box-sizing: border-box;
 }
+/* Global class to put a space between divs */
+.gap {
+    margin-top: 10px;
+}

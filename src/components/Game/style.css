@@ -14,9 +14,15 @@
     grid-gap: 10px;
     padding: 10px;
 }
-.imgGame {
+.showImg {
  
     width: 300px;
     height: 400px;
+    opacity: 0.5;
 
+}
+.hideImg {
+    width: 300px;
+    height: 400px;
+    background-color: rgb(27, 2, 136);
 }
