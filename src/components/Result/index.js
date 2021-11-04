@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 const Result = () => {
   return (
-    <div className="grand">
+    <div className="result">
       <div className="resultBox">
         <div className="up">
           <h2>Congratulations</h2>

@@ -1,16 +1,5 @@
-.grand{
-
-}
-
-.showImg {
- 
-    width: 300px;
-    height: 400px;
-    background-color: rgb(27, 2, 136);
-
-}
-.hideImg {
-    width: 300px;
-    height: 400px;
- 
+.card {
+    width: 150px;
+    height: 300px;
+    object-fit: cover;
 }

@@ -1,7 +1,7 @@
 .desc {
     width: 60rem;
     height: 30rem;
-    border: 5px solid black;
+    /* border: 5px solid black; */
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -15,4 +15,31 @@
 
 .bttn {
     width: 5rem;
+}
+
+img {
+    cursor: pointer;
+    width: 250 px;
+    height: 400 px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.showImg {
+
+  
+        cursor: pointer;
+        width: 250 px;
+        height: 400 px;
+        border-radius: 8px;
+        object-fit: cover;
+
+
+}
+.hideImg {
+    cursor: pointer;
+    width: 250 px;
+    height: 400 px;
+    border-radius: 8px;
+    object-fit: cover;
+ 
 }

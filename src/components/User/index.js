@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useHistory } from "react-router-dom";
 import "./style.css";
 
@@ -13,7 +12,7 @@ const User = () => {
   };
 
   return (
-    <div className="grand">
+    <div className="user">
       <div className="userBox">
         <h1>Enter Your name</h1>
         <form 
