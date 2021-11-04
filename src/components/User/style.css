@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(218, 215, 207);
+  background-color: rgb(236, 236, 236);
 }
 .userBox {
   width: 70vw;
@@ -13,24 +13,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(146, 146, 209);
+  background-color: rgb(189, 189, 230);
   margin: 20px auto;
+  border-radius: 5px;
 }
-
 .enterBtn {
   height: 30px;
   padding: 10px;
   border: none;
+  margin-top: 20px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 .enterBtn:hover {
   background-color: rgb(231, 118, 118);
 }
+.submitBtn {
+  text-align: center;
+  margin: 10px;
+}
 #textField {
   height: 30px;
-  width: 70%;
+  width: 100%;
   border: none;
+  margin-top: 20px;
+  border-radius: 5px;
   border-bottom: solid 1px gray;
   background-color: rgb(223, 223, 238);
 }

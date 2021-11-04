@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import Card from '../Card';
 import './style.css'
 
 function Game () {
@@ -26,6 +27,7 @@ const [arr3,setArr3]= useState(arr.concat(arr2))
 
 arr3.map(elem=>(
     elem.id = Math.floor(Math.random() * 300 + 1)
+ 
 ))
 arr3.sort((a,b)=>(a.id-b.id))
 console.log(arr);
@@ -41,7 +43,7 @@ console.log(arr);
             <div className= "gameBox">
               
                 {arr3.map((elem,i)=>
-                <img src={elem.src} key={i+2} className={elem.isSucssed ? `hideImg` : `showImg`} alt=""/>
+                   <Card  elem={elem} />
 
                 )}
 
