@@ -80,19 +80,25 @@ function Game() {
     }
     console.log(img1, "img1");
     console.log(img2, "img2");
-    if (img1 && img2) {
-      if (img1.name === img2.name) {
-        console.log("كفوو");
-       result= result+ 1;
-        console.log(result);
-      } else {
-        restFunc(img1,img2)
-        console.log(result);
-       
-      }
-    }
 //end func
   };
+useEffect(()=>{
+    if(img1 && img2){
+        if (img1.name === img2.name) {
+            console.log("كفوو");
+           result= result+ 1;
+            console.log(result);
+            restFunc(img1,img2)
+          } else {
+            console.log(result);
+            restFunc(img1,img2)
+          }
+          setResult(result)
+    }
+
+},[img1,img2])
+
+
   const restFunc =(img1,img2)=>{
     img1=null //rest img1
     setImage1(img1)
@@ -111,6 +117,7 @@ function Game() {
       <h1>Game Section</h1>
       <div className="gap"></div>
       <h1>Timer</h1>
+      <h1>Result is = {result}</h1>
       <div className="gap"></div>
 
       <div className="gameBox">
@@ -121,6 +128,7 @@ function Game() {
           tempImg={tempImg} 
           key={i} />
         ))}
+     
       </div>
     </div>
   );
