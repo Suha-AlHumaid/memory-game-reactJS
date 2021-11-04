@@ -4,7 +4,7 @@ import Card from '../Card';
 import './style.css'
 
 function Game () {
-const [arr,setArr]= useState([
+const [arr,]= useState([
     {name:"plants1",src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2pug749MNFCiQnMYlXPuRuXyvPAsdBXvHAqlH3P-ytyXMa7aOg9xwc4QmDo7cdFlGRTs&usqp=CAU",isSucssed: false},
     {name:"plants2",src:"https://img-cdn.majarah.com/post/9255543845435846_110864764043691_909149921428189_8873684819100115_Majarah_science_.jpg",isSucssed: false},
     {name:"plants3",src:"https://besthqwallpapers.com/Uploads/31-3-2018/46606/thumb2-jupiter-4k-planets-galaxy-nebula.jpg",isSucssed: true},
@@ -13,7 +13,7 @@ const [arr,setArr]= useState([
     {name:"plants6",src:"https://scx2.b-cdn.net/gfx/news/2020/1-earth.jpg",isSucssed: false},
 
 ])
-const [arr2,setArr2]= useState([
+const [arr2]= useState([
     {name:"plants1",src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2pug749MNFCiQnMYlXPuRuXyvPAsdBXvHAqlH3P-ytyXMa7aOg9xwc4QmDo7cdFlGRTs&usqp=CAU",isSucssed: false},
     {name:"plants2",src:"https://img-cdn.majarah.com/post/9255543845435846_110864764043691_909149921428189_8873684819100115_Majarah_science_.jpg",isSucssed: false},
     {name:"plants3",src:"https://besthqwallpapers.com/Uploads/31-3-2018/46606/thumb2-jupiter-4k-planets-galaxy-nebula.jpg",isSucssed: true},
@@ -22,7 +22,7 @@ const [arr2,setArr2]= useState([
     {name:"plants6",src:"https://scx2.b-cdn.net/gfx/news/2020/1-earth.jpg",isSucssed: false},
 
 ])
-const [arr3,setArr3]= useState(arr.concat(arr2))
+const [arr3]= useState(arr.concat(arr2))
 // arr3= arr.concat(arr2)
 
 arr3.map(elem=>(

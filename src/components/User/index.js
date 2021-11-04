@@ -1,25 +1,38 @@
 import React from "react";
-import { useState } from "react";
 
+import { useHistory } from "react-router-dom";
 import "./style.css";
 
 const User = () => {
-  const [userName, setUserName] = useState("");
+
+
+  const history = useHistory();
+  const userNameF = (e) => {
+    history.push(`/Description/${e.target.userName.value}`);
+
+  };
 
   return (
     <div className="grand">
       <div className="userBox">
         <h1>Enter Your name</h1>
-        <form>
+        <form 
+        onSubmit={userNameF}
+        >
           <input
             id="textField"
             type="text"
             name="userName"
-            onChange={(e) => setUserName(e.target.value)}
+           
           />
-          <div className="submitBtn">
-            <button className="enterBtn">Enter</button>
-          </div>
+         
+            <button
+              className="enterBtn"
+              
+            >
+              Enter
+            </button>
+          
         </form>
       </div>
     </div>
