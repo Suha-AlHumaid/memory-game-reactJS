@@ -9,7 +9,7 @@ const Card=(props) =>{
 
     return (
         <div className="card">      
-        <img 
+        <img  id="card"
         src={props.elem.src} 
         onClick={(e)=>{handelClick(props.elem)}}
         className={props.elem.isSucssed ? `hideImg` : `showImg`} 

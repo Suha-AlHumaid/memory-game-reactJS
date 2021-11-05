@@ -1,10 +1,31 @@
 import React from "react";
+import {  useParams,useHistory } from "react-router";
 import { useState, useEffect } from "react";
 import Card from "../Card";
+import Timer from '../Timer'
 import "./style.css";
 
+// {
+//   name: "plants7",
+//   src: "https://i.pinimg.com/564x/ed/30/a1/ed30a12b5f672ea74ca5ed635a87871f.jpg",
+//   isSucssed: false,
+// },
+
+
 function Game() {
+  const userName = useParams().userName;
+  const history = useHistory();
+  const userNameF = (e) => {
+    history.push(`/Result/${userName}/${result}`);
+
+  };
   const [arr, setArr] = useState([
+    {
+  name: "plants7",
+  src: "https://i.pinimg.com/564x/a1/53/da/a153da0f37dc7386b2c67502d80ae9f7.jpg",
+  isSucssed: false,
+},
+
     {
       name: "plants1",
       src: "https://i.pinimg.com/564x/6d/86/c5/6d86c5153ccade3d70cc235338d4444c.jpg",
@@ -30,16 +51,8 @@ function Game() {
       src: "https://i.pinimg.com/564x/15/56/be/1556becb4658034446f88eb308d8bf9d.jpg",
       isSucssed: false,
     },
-    {
-      name: "plants6",
-      src: "https://i.pinimg.com/564x/ed/30/a1/ed30a12b5f672ea74ca5ed635a87871f.jpg",
-      isSucssed: false,
-    },
-    {
-      name: "plants7",
-      src: "https://i.pinimg.com/564x/ed/30/a1/ed30a12b5f672ea74ca5ed635a87871f.jpg",
-      isSucssed: false,
-    },
+
+
     {
       name: "plants8",
       src: "https://i.pinimg.com/564x/a2/98/39/a29839270a9676ebd34ca37016a4545a.jpg",
@@ -114,7 +127,10 @@ function Game() {
       } else {
         restFunc(img1, img2);
       }
-      setResult(result); // to show on screen
+      setResult(result);
+      if (result===9){ //if user finsh
+        history.push(`/Result/:userName/:result`);
+      } // to show on screen
     }
   }, [img1, img2]); // depend if there is img1,img2 or do not do the effect
 
@@ -127,14 +143,15 @@ function Game() {
     return;
   };
 
+
   return (
     <div className="game">
+  
       <div className="gap"></div>
+      <p>Good Luck <span>{userName}!</span> You have only <span><Timer/> </span>second. You Score is = {result}</p>
       <div className="gap"></div>
-      <h1>Game Section</h1>
-      <div className="gap"></div>
-      <h1>Timer</h1>
-      <h1>Result is = {result}</h1>
+     
+    
       <div className="gap"></div>
 
       <div className="gameBox">

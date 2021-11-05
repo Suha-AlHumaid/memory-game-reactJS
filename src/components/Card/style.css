@@ -1,5 +1,30 @@
 .card {
-    width: 150px;
+    /* width: 150px;
     height: 300px;
+    object-fit: cover; */
+}
+#card{
+    width: 150px;
+    height: 200px;
+    object-fit: cover; 
+}
+.showImg {
+
+    visibility: visible;
+    cursor: pointer;
+    width: 250 px;
+    height: 400 px;
+    border-radius: 8px;    
     object-fit: cover;
+
+
+}
+.hideImg {
+    visibility: hidden;
+cursor: pointer;
+width: 250 px;
+height: 400 px;
+border-radius: 8px;
+object-fit: cover;
+
 }

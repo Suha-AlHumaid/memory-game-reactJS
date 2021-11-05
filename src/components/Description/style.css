@@ -1,7 +1,7 @@
 .desc {
     width: 60rem;
     height: 30rem;
-    /* border: 5px solid black; */
+    text-align: center;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -13,33 +13,8 @@
     font-size: 3rem;
 }
 
-.bttn {
-    width: 5rem;
+.start-bttn {
+   cursor: pointer;
+   font-size: 3rem;
 }
 
-img {
-    cursor: pointer;
-    width: 250 px;
-    height: 400 px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-.showImg {
-
-  
-        cursor: pointer;
-        width: 250 px;
-        height: 400 px;
-        border-radius: 8px;
-        object-fit: cover;
-
-
-}
-.hideImg {
-    cursor: pointer;
-    width: 250 px;
-    height: 400 px;
-    border-radius: 8px;
-    object-fit: cover;
- 
-}

@@ -13,10 +13,10 @@ const Nav = () => {
           <Link to="/Description/:userName">Description</Link>
         </li>
         <li>
-          <Link to="/Game">Game</Link>
+          <Link to="/Game/:userName">Game</Link>
         </li>
         <li>
-          <Link to="/Result">Result</Link>
+          <Link to="/Result/:userName/:result">Result</Link>
         </li>
       </ul>
     </div>

@@ -10,6 +10,6 @@
   align-items: center;
 }
 li {
- display: inline-block;
+ display: inline;
  padding-left: 20px;
 }
