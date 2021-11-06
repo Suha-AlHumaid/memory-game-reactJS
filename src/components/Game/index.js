@@ -1,30 +1,33 @@
 import React from "react";
-import {  useParams,useHistory } from "react-router";
+import { useParams, useHistory } from "react-router";
 import { useState, useEffect } from "react";
+import ReactHowler from 'react-howler'
+import music from  "./music4.ogg";
+import {GoUnmute, GoMute} from "react-icons/go"
+
 import Card from "../Card";
-import Timer from '../Timer'
+import Timer from "../Timer";
 import "./style.css";
+
+
 
 // {
 //   name: "plants7",
 //   src: "https://i.pinimg.com/564x/ed/30/a1/ed30a12b5f672ea74ca5ed635a87871f.jpg",
 //   isSucssed: false,
 // },
-
-
 function Game() {
   const userName = useParams().userName;
   const history = useHistory();
-  const userNameF = (e) => {
-    history.push(`/Result/${userName}/${result}`);
-
-  };
+  // const userNameF = (e) => {
+  // history.push(`/Result/${userName}/${result}`);
+  // };
   const [arr, setArr] = useState([
     {
-  name: "plants7",
-  src: "https://i.pinimg.com/564x/a1/53/da/a153da0f37dc7386b2c67502d80ae9f7.jpg",
-  isSucssed: false,
-},
+      name: "plants7",
+      src: "https://i.pinimg.com/564x/a1/53/da/a153da0f37dc7386b2c67502d80ae9f7.jpg",
+      isSucssed: false,
+    },
 
     {
       name: "plants1",
@@ -52,7 +55,6 @@ function Game() {
       isSucssed: false,
     },
 
-
     {
       name: "plants8",
       src: "https://i.pinimg.com/564x/a2/98/39/a29839270a9676ebd34ca37016a4545a.jpg",
@@ -70,9 +72,11 @@ function Game() {
     },
   ]);
   let [result, setResult] = useState(0); // init value result =0
+  let [timeSeconds, setTimeSeconds] = useState("10");
   let [img1, setImage1] = useState(null); // intial value for obj img1 =null
   let [img2, setImage2] = useState(null); // intial value for obj img2 =null
-
+  let [permission,setPermission] =useState(false);
+  let [mute,setMute] =useState(false);
   //  array & copy array elem => array.length*2
   useEffect(() => {
     let tempArr = [...arr, ...arr];
@@ -110,50 +114,93 @@ function Game() {
   // rest choises
   useEffect(() => {
     if (img1 && img2) {
-      if (img1.name === img2.name) {  // match card => add 1 to result &rest
-        result = result + 1;
+      setPermission(true)
+      if (img1.name === img2.name  && img1.id != img2.id) {
+        // match card => add 1 to result &rest
+        setResult(result++)
 
-        let cards = arr.map((elem) => {//edit selected to true
-          if (elem.name === img1.name) {
+        let cards = arr.map((elem) => {
+          //edit selected to true
+          if (elem.name === img1.name ) {
             return { ...elem, isSucssed: true };
-          }else{
-            return elem
+          } else {
+            return elem;
           }
-          
         }); //loop end
-        setArr(cards)
-        restFunc(img1, img2);
-
+        setArr(cards);
+        setTimeout(()=>restFunc(), 800);// to hold card until card back
       } else {
-        restFunc(img1, img2);
+        setTimeout(()=>restFunc(), 800);// to hold card until card back
       }
       setResult(result);
-      if (result===9){ //if user finsh
-        history.push(`/Result/:userName/:result`);
+      if (result === arr.length/2) {
+        //if user finsh  
+          // end of the game
+          history.push(`/Result/${userName}/${result}`);
       } // to show on screen
     }
   }, [img1, img2]); // depend if there is img1,img2 or do not do the effect
 
   //reset func
-  const restFunc = (img1, img2) => {
-    img1 = null; //rest img1
-    setImage1(img1);
-    img2 = null; //rest img2
-    setImage2(img2);
-    return;
-  };
+  const restFunc = () => {
+    //rest img1
+    setImage1(null);
+    //rest img2
+    setImage2(null);
+    setPermission(false);
+    setResult(result);
+  }; 
+  
+    useEffect(() =>{
+      const interval = setInterval(() => {
+        if (timeSeconds === 0) {
+          return history.push(`/Result/${userName}/${result}`)
+        } else {
+          setTimeSeconds(timeSeconds--);
+        }
+      //  updateTime();
+      }, 1000);
+      return () => clearInterval(interval);
+    }, []);
+  
+  
+  
+    function updateTime() {
+      // check is it print every sec
+      if (timeSeconds > 0) {
+        setTimeSeconds(timeSeconds--);
+      } else {
+        history.push(`/Result/${userName}/${result}`);
+      }
+    }
+
+    // useEffect(() => updateTime, [10]);
+
+const muteFunc=()=>{
+mute=!mute
+  window.Howler.mute(mute)
+  setMute(mute)
+}
 
 
   return (
-    <div className="game">
-  
-      <div className="gap"></div>
-      <p>Good Luck <span>{userName}!</span> You have only <span><Timer/> </span>second. You Score is = {result}</p>
-      <div className="gap"></div>
-     
-    
-      <div className="gap"></div>
 
+    <div className="game">
+            <ReactHowler
+        // src='http://goldfirestudios.com/proj/howlerjs/sound.ogg'
+        src={music}
+        playing={true}
+        preload={true}
+      /> <span className ="timer">{timeSeconds}</span>
+  
+  <div className="gameInfo">
+      <div className="userName">
+      <h1>Good Luck </h1>
+      <span>{userName}!</span>
+      </div >
+      <div className="score">
+      <h2>Your Score <span id="score">{result}</span></h2></div>
+      </div>
       <div className="gameBox">
         {arr.map((elem, i) => (
           <Card
@@ -161,8 +208,23 @@ function Game() {
             elem={elem}
             tempImg={tempImg} //for hold chosen elem in card component
             key={i}
+            switchCard={elem === img1 || elem === img2 || elem.isSucssed}
+            permission = {permission}
+            loop={true}
           />
         ))}
+      </div>
+           
+      <div className="gameInfo">
+     
+      <button className="muteBtn"
+       onClick={
+        muteFunc
+      }>{mute?<GoMute/>: <GoUnmute/>}
+        </button>
+        <span>
+          {/* <Timer result={result} toResult={toResult}/> */}
+        </span>
       </div>
     </div>
   );

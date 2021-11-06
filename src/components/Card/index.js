@@ -1,20 +1,36 @@
-import React from 'react'
-import './style.css'
+import React from "react";
+import "./style.css";
 
-const Card=(props) =>{
-
-    const handelClick =(elem) =>{
-        props.tempImg(elem)// send choosen card to tempfunc in game component
+const Card = (props) => {
+  const handelClick = (elem) => {
+    // send choosen card to tempfunc in game component
+    if (!props.permission) {
+      props.tempImg(elem);
     }
+  };
+  return (
+    <div
+      id="cardContainer"
+      className={props.elem.isSucssed ? `card hideImg` : `card showImg`}
+    >
+      <div
+        id="singleCard"
+        className={props.switchCard ? `card switch` : `card`}
+      >
+        <img id="front" className="front" src={props.elem.src} alt="" />
 
-    return (
-        <div className="card">      
-        <img  id="card"
-        src={props.elem.src} 
-        onClick={(e)=>{handelClick(props.elem)}}
-        className={props.elem.isSucssed ? `hideImg` : `showImg`} 
-        alt=""/>
-        </div>
-    )
-}
-export default Card
+        <img
+          id="back"
+          className="back"
+          src="https://images5.alphacoders.com/492/492784.jpg"
+          onClick={(e) => {
+            handelClick(props.elem);
+          }}
+          alt=""
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Card;

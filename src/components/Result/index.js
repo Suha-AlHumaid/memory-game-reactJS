@@ -1,23 +1,41 @@
 import React from "react";
-
-import { useParams } from "react-router";
+import ReactHowler from 'react-howler'
+import music from  "./music4.ogg";
+import { useParams,useHistory} from "react-router";
 import "./style.css";
 const Result = () => {
-  const userName = useParams().userName;
-  const result = useParams().result;
+  const {userName,result} = useParams();
+  // const userName =useParams.userName;
+  // const result = useParams().result;
+const params =useParams();
+console.log(params);
+  const history = useHistory();
+  function playAgain() {
+    history.push(`/Game/${userName}`);
+  }
   return (
     <div className="result">
+                <ReactHowler
+        // src='http://goldfirestudios.com/proj/howlerjs/sound.ogg'
+        src={music}
+        playing={true}
+        preload={true}
+        loop={true}
+      /> 
       <div className="resultBox">
-        <div className="score">
+        <div className="scoreBox">
         <div className="up">
           
-          <h3>{userName}</h3>
-          <h2>Score</h2>
-          <h2>{result}</h2>
+          <h1>{userName}</h1>
+          <p>Score</p>
+          <span id="score">{result}</span>
         </div>
 
         <div className="down">
-          <button id="restartBtn">Play Again?</button>
+        
+          <button id="restartBtn" onClick={playAgain}>
+            play again?
+          </button>
         </div>
         </div>
       </div>
