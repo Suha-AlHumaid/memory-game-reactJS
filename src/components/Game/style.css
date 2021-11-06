@@ -23,9 +23,17 @@
 margin-right: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content:flex-start;
   align-items: center;
-/* background-color: thistle; */
+}
+.gameInfo {
+  width: 280px;
+  height: 100%;
+margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
 }
 .gameBox {
   /* width: 600px; */
@@ -54,6 +62,8 @@ span {
   border-radius: 30px;
   border: none;
   font-size: 1.5rem;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 .timer {
   font-size: 5rem;

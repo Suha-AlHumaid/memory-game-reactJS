@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import ReactHowler from 'react-howler'
 import music from  "./music4.ogg";
 import {GoUnmute, GoMute} from "react-icons/go"
-
+import {GrPowerShutdown} from "react-icons/gr"
 import Card from "../Card";
 import Timer from "../Timer";
 import "./style.css";
@@ -72,7 +72,7 @@ function Game() {
     },
   ]);
   let [result, setResult] = useState(0); // init value result =0
-  let [timeSeconds, setTimeSeconds] = useState("10");
+  let [timeSeconds, setTimeSeconds] = useState("60");
   let [img1, setImage1] = useState(null); // intial value for obj img1 =null
   let [img2, setImage2] = useState(null); // intial value for obj img2 =null
   let [permission,setPermission] =useState(false);
@@ -182,7 +182,13 @@ mute=!mute
   setMute(mute)
 }
 
-
+let quit = () => {
+  if (window.confirm("Are you sure you want to quit the game?!")) {
+    
+    
+    window.open("/","Thank you for Playing");
+  }
+}
   return (
 
     <div className="game">
@@ -215,13 +221,16 @@ mute=!mute
         ))}
       </div>
            
-      <div className="gameInfo">
+      <div className="gameSitting">
      
       <button className="muteBtn"
        onClick={
         muteFunc
       }>{mute?<GoMute/>: <GoUnmute/>}
         </button>
+        <button className="muteBtn" onClick={quit}>
+       <GrPowerShutdown/>
+      </button>
         <span>
           {/* <Timer result={result} toResult={toResult}/> */}
         </span>
@@ -230,4 +239,4 @@ mute=!mute
   );
 }
 
-export default Game;
+export default Game 
