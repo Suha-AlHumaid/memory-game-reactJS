@@ -88,8 +88,8 @@ h1 {
 }
 @media screen and (max-width: 992px) {
   .game {
-    background-position-y: center;
-    background-position-x: -50px;
+    background-position-y: 30px;
+    background-position-x: 260px;
     flex-direction: column;
     height: auto;
   }
@@ -111,8 +111,8 @@ h1 {
 }
 @media screen and (max-width: 600px) {
   .game {
-    background-position-y: 30px;
-    background-position-x: 260px;
+    background-position-y: 228px;
+    background-position-x: -40px;
     flex-direction: column;
     height: auto;
   }
