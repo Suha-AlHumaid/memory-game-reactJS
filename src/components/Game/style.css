@@ -86,3 +86,25 @@ h1{
   font-size: 2.5rem;
   color: #fed884;
 }
+@media (max-width: 600px) {
+  .game {
+    flex-direction: column;
+    height: auto;
+  }
+  .gameBox {
+    grid-template-columns: auto auto;
+    margin-top: 200px;
+    margin-bottom: 30px;
+  }
+  .gameSitting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .muteBtn {
+    margin-left: 20px;
+  }
+}

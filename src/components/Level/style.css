@@ -6,7 +6,7 @@
 background-repeat:repeat-x;
   background-position: center;
   background-size: contain;
-  background-color: coral;
+  background-color: #270045;
   
 }
 .levelsbox{
@@ -25,7 +25,11 @@ background-repeat:repeat-x;
   padding-top: 2rem;
 }
 .selectBtn{
-
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .level-bttn {
@@ -46,4 +50,8 @@ background-repeat:repeat-x;
   background-color: darkmagenta;
   color: #fff;
 }
-
+@media (max-width: 600px) {
+  .level-bttn {
+    margin: 10px;
+  }
+}
