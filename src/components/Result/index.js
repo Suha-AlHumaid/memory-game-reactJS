@@ -35,7 +35,7 @@ const Result = () => {
             <h1>{userName}</h1>
             <p>Score</p>
             <span id="score">{result}</span>
-           <span className="word"> {(result===9)? "WINNER" :"LOSER"}</span>
+           <span className="word"> {(result==9)? "WINNER" :"LOSER"}</span>
           </div>
 
           <div className="down">
