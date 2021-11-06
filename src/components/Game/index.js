@@ -6,22 +6,15 @@ import music from  "./music4.ogg";
 import {GoUnmute, GoMute} from "react-icons/go"
 import {GrPowerShutdown} from "react-icons/gr"
 import Card from "../Card";
-import Timer from "../Timer";
 import "./style.css";
 
-
-
-// {
-//   name: "plants7",
-//   src: "https://i.pinimg.com/564x/ed/30/a1/ed30a12b5f672ea74ca5ed635a87871f.jpg",
-//   isSucssed: false,
-// },
 function Game() {
-  const userName = useParams().userName;
+
+
+  const {timer,userName} = useParams();
+  console.log(useParams().timer);
   const history = useHistory();
-  // const userNameF = (e) => {
-  // history.push(`/Result/${userName}/${result}`);
-  // };
+
   const [arr, setArr] = useState([
     {
       name: "plants7",
@@ -71,8 +64,9 @@ function Game() {
       isSucssed: false,
     },
   ]);
+  
   let [result, setResult] = useState(0); // init value result =0
-  let [timeSeconds, setTimeSeconds] = useState("60");
+  let [timeSeconds, setTimeSeconds] = useState(timer);
   let [img1, setImage1] = useState(null); // intial value for obj img1 =null
   let [img2, setImage2] = useState(null); // intial value for obj img2 =null
   let [permission,setPermission] =useState(false);
@@ -152,16 +146,12 @@ function Game() {
   }; 
   
     useEffect(() =>{
+      console.log("result",result);
       const interval = setInterval(() => {
-        if (timeSeconds === 0) {
-          return history.push(`/Result/${userName}/${result}`)
-        } else {
-          setTimeSeconds(timeSeconds--);
-        }
-      //  updateTime();
+       updateTime();
       }, 1000);
       return () => clearInterval(interval);
-    }, []);
+    }, [result]);
   
   
   
@@ -186,26 +176,36 @@ let quit = () => {
   if (window.confirm("Are you sure you want to quit the game?!")) {
     
     
-    window.open("/","Thank you for Playing");
+    window.open(`/Result/${userName}/${result}`,"_self");
   }
 }
   return (
 
     <div className="game">
+ 
             <ReactHowler
         // src='http://goldfirestudios.com/proj/howlerjs/sound.ogg'
         src={music}
         playing={true}
         preload={true}
-      /> <span className ="timer">{timeSeconds}</span>
-  
+      />
+
   <div className="gameInfo">
+  
       <div className="userName">
+      <div className="timer-GL">
+      <span className ="timer">{timeSeconds}</span>
       <h1>Good Luck </h1>
+      </div>
       <span>{userName}!</span>
       </div >
       <div className="score">
-      <h2>Your Score <span id="score">{result}</span></h2></div>
+      <h2>Score
+      <span id="score">{result}</span>
+  </h2></div>
+
+  
+
       </div>
       <div className="gameBox">
         {arr.map((elem, i) => (
