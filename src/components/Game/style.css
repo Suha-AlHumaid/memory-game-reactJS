@@ -86,7 +86,28 @@ h1{
   font-size: 2.5rem;
   color: #fed884;
 }
-@media (max-width: 600px) {
+@media screen and (max-width: 992px) {
+  .game {
+    flex-direction: column;
+    height: auto;
+  }
+  .gameBox {
+    grid-template-columns:auto auto auto;
+    margin-bottom: 30px;
+  }
+  .gameSitting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .muteBtn {
+    margin-left: 20px;
+  }
+}
+@media screen and (max-width: 600px) {
   .game {
     flex-direction: column;
     height: auto;

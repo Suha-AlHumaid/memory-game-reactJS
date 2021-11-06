@@ -91,7 +91,24 @@ p {
   color: #ff217c;
   font-size: 2.5rem;
 }
-@media (max-width: 600px) {
+@media screen and (max-width: 992px) {
+  .scoreBox {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border-radius: 10
+px
+;
+    padding: 20
+px
+;
+    background-color: rgb(54 14 63 / 43%);
+    padding: 20
+px
+;
+  }
+}
+@media screen and (max-width: 600px) {
   .scoreBox {
     position: absolute;
     /* right: 5%; */
