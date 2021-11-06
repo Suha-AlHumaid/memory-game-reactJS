@@ -74,13 +74,13 @@ form {
   background-color: rgb(223, 223, 238);
 }
 @media screen and (max-width: 992px) {
-    .boxInfo {
-        width: auto;
-        height: auto;
-      }
-      #textField {
-        width: 60vw;
-      }
+  .boxInfo {
+    width: auto;
+    height: auto;
+  }
+  #textField {
+    width: 60vw;
+  }
 }
 @media screen and (max-width: 600px) {
   .boxInfo {
@@ -90,5 +90,4 @@ form {
   #textField {
     width: 60vw;
   }
-
 }

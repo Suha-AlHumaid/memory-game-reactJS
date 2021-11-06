@@ -96,16 +96,10 @@ p {
     position: absolute;
     width: 50%;
     height: 50%;
-    border-radius: 10
-px
-;
-    padding: 20
-px
-;
+    border-radius: 10 px;
+    padding: 20 px;
     background-color: rgb(54 14 63 / 43%);
-    padding: 20
-px
-;
+    padding: 20 px;
   }
 }
 @media screen and (max-width: 600px) {

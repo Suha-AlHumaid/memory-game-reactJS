@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@500&display=swap');
-*{
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: 'Red Hat Mono', monospace;
-    
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Red Hat Mono", monospace;
 }
 /* Global class to put a space between divs */
 .gap {
-    margin-top: 10px;
+  margin-top: 10px;
 }

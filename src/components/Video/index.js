@@ -18,13 +18,15 @@ const Video = () => {
       autoplay: 1,
     },
   };
-const closeVid =()=>{
+  const closeVid = () => {
     window.open("/Description", "_self");
-}
+  };
   // const videoSrc = StoryBots;
   return (
     <div className="video">
-      <button className="closeBtn" onClick={closeVid}>x</button>
+      <button className="closeBtn" onClick={closeVid}>
+        x
+      </button>
       <div>
         <YouTube videoId="ZHAqT4hXnMw" opts={opts} onPlay={videoPlay} />
       </div>
