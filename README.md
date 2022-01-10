@@ -1,5 +1,5 @@
 # Cap1
-## React JS.
+React JS, puer CSS.
 
 ## [Demo](https://sapce-game.herokuapp.com/Description)
 
